@@ -1,0 +1,35 @@
+<div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="form">
+        <i class="fa fa-search"></i>
+        <input
+          type="text"
+          class="form-control form-input"
+          placeholder="Search anything..."
+        />
+        <span class="left-pan"><i class="fa fa-microphone"></i></span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div *ngFor="let con of data" class="card">
+      <img class="card-img-top"  [src]="'https://www.nichea.co.za/nichea/file/' + con.image.id + '/' + con.image.name" />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ con.name }}
+        </h5>
+        <div class="card-text">
+          <button (click)="updateCategory(con)">View Products</button>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="data?.length == 0"
+      class="alert alert-warning col-md-12"
+      role="alert"
+    >
+      No products found.
+    </div>
+  </div>
+  
